@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  main:
+    image: scsibug/nostr-rs-relay:0.7.17@sha256:2d83526e45fb1c8ecaec6bd138a9f4949a84fd7acc7fe748184f2c8865efa9c7
+    restart: on-failure
+    volumes:
+      - ${PWD}/data/relay/db:/usr/src/app/db
+      - ${PWD}/data/relay/config.toml:/usr/src/app/config.toml
+    network_mode: host
